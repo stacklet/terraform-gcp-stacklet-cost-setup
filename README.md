@@ -29,15 +29,15 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [google_bigquery_table_iam_member.sa_bq_tables](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigquery_table_iam_member) | resource |
+| [google_bigquery_table_iam_member.sa_bq_tables](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigquery_table_iam) | resource |
 | [google_iam_workload_identity_pool.stacklet_access](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/iam_workload_identity_pool) | resource |
 | [google_iam_workload_identity_pool_provider.stacklet_account](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/iam_workload_identity_pool_provider) | resource |
-| [google_project.billing_export](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project) | resource |
-| [google_project_iam_member.sa_bq_jobs](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_iam_member) | resource |
-| [google_project_service.bigquery](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_service) | resource |
-| [google_project_service.iamcredentials](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_service) | resource |
-| [google_service_account.billing_access](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/service_account) | resource |
-| [google_service_account_iam_policy.billing_access](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/service_account_iam_policy) | resource |
+| [google_project.billing_export](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project) | resource |
+| [google_project_iam_member.sa_bq_jobs](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam) | resource |
+| [google_project_service.bigquery](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_service) | resource |
+| [google_project_service.iamcredentials](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_service) | resource |
+| [google_service_account.billing_access](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_service_account) | resource |
+| [google_service_account_iam_policy.billing_access](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_service_account_iam) | resource |
 | [google_iam_policy.stacklet_role_access](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/iam_policy) | data source |
 
 ## Inputs
