@@ -57,6 +57,7 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_project_id"></a> [project\_id](#output\_project\_id) | n/a |
+| <a name="output_table_locations"></a> [table\_locations](#output\_table\_locations) | n/a |
 | <a name="output_wif_audience"></a> [wif\_audience](#output\_wif\_audience) | n/a |
 | <a name="output_wif_impersonation_url"></a> [wif\_impersonation\_url](#output\_wif\_impersonation\_url) | n/a |
 <!-- END_TF_DOCS -->
