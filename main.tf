@@ -82,3 +82,12 @@ resource "google_bigquery_table_iam_member" "sa_bq_tables" {
     role       = "roles/bigquery.dataViewer"
     member     = google_service_account.billing_access.member
 }
+
+
+# Discover dataset locations for output.
+data "google_bigquery_dataset" "table_datasets" {
+    for_each = { for table in local.source_tables : table.key => table }
+
+    project    = each.value.project_id
+    dataset_id = each.value.dataset_id
+}
