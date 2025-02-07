@@ -44,11 +44,12 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_prefix"></a> [prefix](#input\_prefix) | ID prefix applied to all resources | `string` | `"stacklet"` | no |
+| <a name="input_billing_tables"></a> [billing\_tables](#input\_billing\_tables) | Billing export tables in <project\_id>.<dataset\_id>.<table\_id> format. | `list(string)` | n/a | yes |
 | <a name="input_project_billing_account_id"></a> [project\_billing\_account\_id](#input\_project\_billing\_account\_id) | Billing account responsible for any costs incurred | `string` | `null` | no |
 | <a name="input_project_folder_id"></a> [project\_folder\_id](#input\_project\_folder\_id) | Where to create the project (optional, exclusive of project\_org\_id) | `string` | `null` | no |
+| <a name="input_project_id"></a> [project\_id](#input\_project\_id) | ID of project to hold all resources | `string` | n/a | yes |
 | <a name="input_project_org_id"></a> [project\_org\_id](#input\_project\_org\_id) | Where to create the project (optional, exclusive of project\_folder\_id) | `string` | `null` | no |
-| <a name="input_source_tables"></a> [source\_tables](#input\_source\_tables) | Billing export tables in <project\_id>.<dataset\_id>.<table\_id> format. | `list(string)` | n/a | yes |
+| <a name="input_resource_labels"></a> [resource\_labels](#input\_resource\_labels) | Labels to apply to the project and applicable resources | `map` | `{}` | no |
 | <a name="input_stacklet_aws_account_id"></a> [stacklet\_aws\_account\_id](#input\_stacklet\_aws\_account\_id) | AWS account which will use WIF to query billing data (chosen by Stacklet) | `string` | n/a | yes |
 | <a name="input_stacklet_aws_role_name"></a> [stacklet\_aws\_role\_name](#input\_stacklet\_aws\_role\_name) | AWS IAM role which will use WIF to query billing data (chosen by Stacklet) | `string` | n/a | yes |
 

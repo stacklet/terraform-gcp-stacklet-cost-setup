@@ -1,5 +1,5 @@
 variable "resource_labels" {
-    type        = map
+    type        = map(string)
     default     = {}
     description = "Labels to apply to the project and applicable resources"
 }
