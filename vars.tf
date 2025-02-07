@@ -1,7 +1,12 @@
-variable "prefix" {
+variable "resource_labels" {
+    type        = map
+    default     = {}
+    description = "Labels to apply to the project and applicable resources"
+}
+
+variable "project_id" {
     type        = string
-    default     = "stacklet"
-    description = "ID prefix applied to all resources"
+    description = "ID of project to hold all resources"
 }
 
 variable "project_org_id" {
@@ -22,12 +27,12 @@ variable "project_billing_account_id" {
     description = "Billing account responsible for any costs incurred"
 }
 
-variable "source_tables" {
+variable "billing_tables" {
     type        = list(string)
     description = "Billing export tables in <project_id>.<dataset_id>.<table_id> format."
     validation {
-        condition     = alltrue([for t in var.source_tables : length(split(".", t)) == 3])
-        error_message = "All source tables must be <project_id>.<dataset_id>.<table_id>"
+        condition     = alltrue([for t in var.billing_tables : length(split(".", t)) == 3])
+        error_message = "All tables must be <project_id>.<dataset_id>.<table_id>"
     }
 }
 
