@@ -57,7 +57,7 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_combined_payload"></a> [combined\_payload](#output\_combined\_payload) | n/a |
+| <a name="output_access_blob"></a> [access\_blob](#output\_access\_blob) | n/a |
 | <a name="output_project_id"></a> [project\_id](#output\_project\_id) | n/a |
 | <a name="output_table_locations"></a> [table\_locations](#output\_table\_locations) | n/a |
 | <a name="output_wif_audience"></a> [wif\_audience](#output\_wif\_audience) | n/a |
