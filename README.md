@@ -6,14 +6,12 @@ This repository provides automation for granting Stacklet access to pre-existing
 
 The terraform in this repository allows a single Stacklet-controlled AWS IAM role to execute BigQuery jobs against any number of billing data exports in GCP. Suitable configuration variables will be supplied by Stacklet, and the resulting outputs must be communicated back to Stacklet.
 
-It must be applied by an identity with sufficient privileges to:
-* create a project and associate a billing account id
-* grant `roles/bigquery.dataViewer` on each configured billing export table
-
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
-No requirements.
+It must be applied by an identity with sufficient privileges to:
+* create a project and associate a billing account id
+* grant `roles/bigquery.dataViewer` on each configured billing export table
 
 ## Providers
 

@@ -52,7 +52,7 @@ resource "google_iam_workload_identity_pool_provider" "stacklet_account" {
   project                            = google_project.billing_export.project_id
   workload_identity_pool_id          = google_iam_workload_identity_pool.stacklet_access.workload_identity_pool_id
   workload_identity_pool_provider_id = "stacklet-account"
-  display_name                       = "Stacklet FOCUS export"
+  display_name                       = "Stacklet billing queries"
   disabled                           = false
 
   # The default attribute mapping for AWS sets `aws_role` attribute which matches the
