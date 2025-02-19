@@ -17,22 +17,36 @@ resource "google_project" "billing_export" {
   org_id          = var.project_org_id
   folder_id       = var.project_folder_id
   billing_account = var.project_billing_account_id
+
+  deletion_policy = "DELETE"
 }
 resource "google_project_service" "iamcredentials" {
   project = google_project.billing_export.project_id
   service = "iamcredentials.googleapis.com"
+
+  disable_dependent_services = true
 }
 resource "google_project_service" "bigquery" {
   project = google_project.billing_export.project_id
   service = "bigquery.googleapis.com"
+
+  disable_dependent_services = true
 }
 
+# delay identity pool creation as it fails if executed right after project
+# creation
+resource "time_sleep" "stacklet_access_creation_delay" {
+  create_duration = "30s"
 
+  depends_on = [google_project.billing_export]
+}
 # Allow AWS roles from the Stacklet account to assume identities in GCP.
 resource "google_iam_workload_identity_pool" "stacklet_access" {
   project                   = google_project.billing_export.project_id
   workload_identity_pool_id = "stacklet-access"
   display_name              = "Stacklet billing export"
+
+  depends_on = [time_sleep.stacklet_access_creation_delay]
 }
 resource "google_iam_workload_identity_pool_provider" "stacklet_account" {
   project                            = google_project.billing_export.project_id
