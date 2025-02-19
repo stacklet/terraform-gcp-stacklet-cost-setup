@@ -19,6 +19,11 @@ variable "project_folder_id" {
   type        = string
   default     = null
   description = "Where to create the project (optional, exclusive of project_org_id)"
+
+  validation {
+    condition     = var.project_org_id == null || var.project_folder_id == null
+    error_message = "project_org_id and project_folder_id are exclusive"
+  }
 }
 
 variable "project_billing_account_id" {
