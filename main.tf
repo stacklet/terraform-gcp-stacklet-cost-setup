@@ -33,19 +33,18 @@ resource "google_project_service" "bigquery" {
   disable_dependent_services = true
 }
 
-# delay identity pool creation as it fails if executed right after project
-# creation
+# Allow AWS roles from the Stacklet account to assume identities in GCP.
 resource "time_sleep" "stacklet_access_creation_delay" {
-  create_duration = "30s"
+  create_duration = "60s"
 
   depends_on = [google_project.billing_export]
 }
-# Allow AWS roles from the Stacklet account to assume identities in GCP.
 resource "google_iam_workload_identity_pool" "stacklet_access" {
   project                   = google_project.billing_export.project_id
   workload_identity_pool_id = "stacklet-access"
   display_name              = "Stacklet billing export"
 
+  # identity pool creation fails if executed too soon after project creation
   depends_on = [time_sleep.stacklet_access_creation_delay]
 }
 resource "google_iam_workload_identity_pool_provider" "stacklet_account" {
