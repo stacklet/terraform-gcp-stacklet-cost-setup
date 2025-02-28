@@ -50,3 +50,9 @@ variable "stacklet_aws_role_name" {
   type        = string
   description = "AWS IAM role which will use WIF to query billing data (chosen by Stacklet)"
 }
+
+variable "roundtrip_digest" {
+  type        = string
+  default     = null
+  description = "Token used by the Stacklet Platform to detect mismatch between customerConfig and accessConfig"
+}

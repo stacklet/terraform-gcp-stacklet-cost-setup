@@ -27,5 +27,6 @@ output "access_blob" {
     tableLocations      = local.table_locations,
     wifAudience         = local.wif_audience,
     wifImpersonationURL = local.wif_impersonation_url,
+    roundtripDigest     = var.roundtrip_digest,
   }))
 }
