@@ -5,7 +5,7 @@ locals {
 
   // Use local.project_id in favour of var.project_id, to ensure dependency ordering.
   project_id     = var.create_project ? google_project.billing_export[0].project_id : var.project_id
-  project_number = var.create_project ? google_project.billing_export[0].number : data.google_project.existing_project[0].number
+  project_number = var.create_project ? google_project.billing_export[0].number : data.google_project.existing[0].number
 
   resource_prefix = var.resource_prefix == "" ? "" : "${var.resource_prefix}-"
 
@@ -51,7 +51,7 @@ resource "google_project_service" "bigquery" {
 
 // Or, the pre-existing project for the resources to live in, with the
 // expectation that the necessary APIs are already enabled out of band.
-data "google_project" "existing_project" {
+data "google_project" "existing" {
   count = local.project_data_count
 
   project_id = var.project_id
