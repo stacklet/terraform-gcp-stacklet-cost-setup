@@ -91,7 +91,7 @@ resource "google_iam_workload_identity_pool_provider" "stacklet_account" {
 # Service account, which can be impersonated by `local.stacklet_assumed_role`.
 resource "google_service_account" "billing_access" {
   project      = local.project_id
-  account_id   = "${local.resource_prefix}stacklet-billing-access"
+  account_id   = "${local.resource_prefix}stacklet-access"
   display_name = "Stacklet WIF billing access"
 }
 data "google_iam_policy" "stacklet_role_access" {

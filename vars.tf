@@ -8,6 +8,11 @@ variable "resource_prefix" {
   type        = string
   default     = ""
   description = "If set, prepended to all non-project resource identifiers."
+
+  validation {
+    condition     = length(var.resource_prefix) <= 14
+    error_message = "resource_prefix can be no longer than 14 characters."
+  }
 }
 
 variable "project_id" {
