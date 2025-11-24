@@ -1,3 +1,14 @@
-provider "google" {
-  default_labels = var.resource_labels
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    google = {
+      source  = "hashicorp/google"
+      version = "~> 6.23"
+    }
+    time = {
+      source  = "hashicorp/time"
+      version = "~> 0.12"
+    }
+  }
 }

@@ -4,14 +4,20 @@ This repository provides automation for granting Stacklet access to pre-existing
 
 # Overview
 
-The terraform in this repository allows a single Stacklet-controlled AWS IAM role to execute BigQuery jobs against any number of billing data exports in GCP. Suitable configuration variables will be supplied by Stacklet, and the resulting outputs must be communicated back to Stacklet.
+This module allows a single Stacklet-controlled AWS IAM role to execute BigQuery jobs against any number of billing data exports in GCP. Suitable configuration variables will be supplied by Stacklet, and the resulting outputs must be communicated back to Stacklet.
+
+It must be deployed by an identity with sufficient privileges to:
+* grant `roles/bigquery.dataViewer` on each configured billing export table
+* (if `create_project` is set) create a project and associate a billing account id
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
-It must be applied by an identity with sufficient privileges to:
-* grant `roles/bigquery.dataViewer` on each configured billing export table
-* (if `create_project` is set) create a project and associate a billing account id
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
+| <a name="requirement_google"></a> [google](#requirement\_google) | ~> 6.23 |
+| <a name="requirement_time"></a> [time](#requirement\_time) | ~> 0.12 |
 
 ## Providers
 
@@ -40,7 +46,7 @@ No modules.
 | [time_sleep.stacklet_access_creation_delay](https://registry.terraform.io/providers/hashicorp/time/latest/docs/resources/sleep) | resource |
 | [google_bigquery_dataset.table_datasets](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/bigquery_dataset) | data source |
 | [google_iam_policy.stacklet_role_access](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/iam_policy) | data source |
-| [google_project.existing_project](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/project) | data source |
+| [google_project.existing](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/project) | data source |
 
 ## Inputs
 

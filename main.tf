@@ -1,7 +1,7 @@
 locals {
   // We either create a project resource, or look up an existing project.
-  project_resource_count  = var.create_project ? 1 : 0
-  project_data_count      = var.create_project ? 0 : 1
+  project_resource_count = var.create_project ? 1 : 0
+  project_data_count     = var.create_project ? 0 : 1
 
   // Use local.project_id in favour of var.project_id, to ensure dependency ordering.
   project_id     = var.create_project ? google_project.billing_export[0].project_id : var.project_id
@@ -29,6 +29,7 @@ resource "google_project" "billing_export" {
   org_id          = var.project_org_id
   folder_id       = var.project_folder_id
   billing_account = var.project_billing_account_id
+  labels          = var.resource_labels
 
   deletion_policy = "DELETE"
 }
