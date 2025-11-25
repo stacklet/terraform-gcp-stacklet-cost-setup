@@ -1,5 +1,7 @@
 # terraform-gcp-stacklet-cost-setup
 
+> **⚠️ DEPRECATED**: This repository is deprecated and replaced by the [terraform-gcp-cost-setup](https://github.com/stacklet/terraform-gcp-cost-setup) module. Please refer to the documentation on the new repository for all new deployments.
+
 This repository provides automation for granting Stacklet access to pre-existing billing data exports in BigQuery, via Workload Identity Federation.
 
 # Overview
